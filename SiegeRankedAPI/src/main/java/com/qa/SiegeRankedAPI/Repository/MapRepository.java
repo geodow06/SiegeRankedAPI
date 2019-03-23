@@ -7,5 +7,5 @@ import com.qa.SiegeRankedAPI.Entities.Map;
 
 @Repository
 public interface MapRepository extends JpaRepository<Map, Long> {
-
+	public Map findByName(String name); 
 }

@@ -1,32 +1,51 @@
 package com.qa.SiegeRankedAPI.Entities;
 
-import javax.persistence.Entity;
+import javax.persistence.Access;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
 @Entity
+@Table(name = "Operator")
 public class Operator {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "Id")
 	private Long id;
+
+	@Column(name = "Name")
 	private String name;
+
+	@Column(name = "CTU")
 	private String ctu;
+
+	@Column(name = "Kills")
 	private int kills;
+
+	@Column(name = "Deaths")
 	private int deaths;
+
+	@Column(name = "KD")
 	private int kd;
+
+	@Column(name = "Rounds")
 	private int rounds;
 
-	public Operator(Long id, String name, String ctu, int kills, int deaths, int kd, int rounds) {
+	public Operator() {
+
+	}
+
+	public Operator(String name, String ctu) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.ctu = ctu;
-		this.kills = kills;
-		this.deaths = deaths;
-		this.kd = kd;
-		this.rounds = rounds;
 	}
 
 	public Long getId() {

@@ -21,7 +21,7 @@ import com.qa.SiegeRankedAPI.Service.OperatorService;
 @RunWith(SpringRunner.class)
 public class OperatorServiceTest {
 
-	private static final Operator OP = new Operator(null, null, null, 0, 0, 0, 0);
+	private static final Operator OP = new Operator();
 	private static final List<Operator> OPLIST = new ArrayList<>();
 
 	@InjectMocks

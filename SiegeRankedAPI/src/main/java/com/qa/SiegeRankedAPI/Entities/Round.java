@@ -4,19 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
+@Table(name = "Round")
 public class Round {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long roundId;
-	private Operator operator;
+	private String operator;
 	private int kills;
 	private int deaths;
 	private boolean win;
 
-	public Round(Long roundId, Operator operator, int kills, int deaths, boolean win) {
+	public Round(Long roundId, String operator, int kills, int deaths, boolean win) {
 		super();
 		this.roundId = roundId;
 		this.operator = operator;
@@ -33,11 +37,11 @@ public class Round {
 		this.roundId = roundId;
 	}
 
-	public Operator getOperator() {
+	public String getOperator() {
 		return operator;
 	}
 
-	public void setOperator(Operator operator) {
+	public void setOperator(String operator) {
 		this.operator = operator;
 	}
 

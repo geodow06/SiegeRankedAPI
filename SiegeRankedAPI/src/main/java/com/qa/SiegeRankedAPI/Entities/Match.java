@@ -10,19 +10,20 @@ public class Match {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String map;
-	private String win;
+	private Long matchId;
+	private boolean win;
 	private int kills;
 	private int deaths;
 	private int kd;
 	private int roundsWon;
 	private int roundsLost;
+	private String mapName;
 
-	public Match(Long id, String map, String win, int kills, int deaths, int kd, int roundsWon, int roundsLost) {
+	public Match(Long matchId, String mapName, boolean win, int kills, int deaths, int kd, int roundsWon,
+			int roundsLost) {
 		super();
-		this.id = id;
-		this.map = map;
+		this.matchId = matchId;
+		this.mapName = mapName;
 		this.win = win;
 		this.kills = kills;
 		this.deaths = deaths;
@@ -31,27 +32,27 @@ public class Match {
 		this.roundsLost = roundsLost;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getMatchId() {
+		return matchId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setMatchId(Long matchId) {
+		this.matchId = matchId;
 	}
 
-	public String getMap() {
-		return map;
+	public String getMapName() {
+		return mapName;
 	}
 
-	public void setMap(String map) {
-		this.map = map;
+	public void setMapName(String mapName) {
+		this.mapName = mapName;
 	}
 
-	public String getWin() {
+	public boolean getWin() {
 		return win;
 	}
 
-	public void setWin(String win) {
+	public void setWin(boolean win) {
 		this.win = win;
 	}
 
@@ -97,8 +98,8 @@ public class Match {
 
 	@Override
 	public String toString() {
-		return "Match [id=" + id + ", map=" + map + ", win=" + win + ", kills=" + kills + ", deaths=" + deaths + ", kd="
-				+ kd + ", roundsWon=" + roundsWon + ", roundsLost=" + roundsLost + "]";
+		return "Match [matchId=" + matchId + ", mapName=" + mapName + ", win=" + win + ", kills=" + kills + ", deaths="
+				+ deaths + ", kd=" + kd + ", roundsWon=" + roundsWon + ", roundsLost=" + roundsLost + "]";
 	}
 
 }

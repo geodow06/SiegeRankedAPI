@@ -12,8 +12,9 @@ import com.qa.SiegeRankedAPI.Repository.OperatorRepository;
 public class OperatorService {
 
 	private OperatorRepository repo;
-
-	public OperatorService(@Autowired OperatorRepository repo) {
+	
+	@Autowired
+	public OperatorService(OperatorRepository repo) {
 		this.repo = repo;
 	}
 
@@ -27,6 +28,10 @@ public class OperatorService {
 	}
 
 	public boolean createOperator(Operator op) {
+		op.setKills(0); 
+		op.setDeaths(0); 
+		op.setKd(0); 
+		op.setRounds(0);
 		repo.save(op);
 		return repo.existsById(op.getId());
 	}
@@ -42,24 +47,28 @@ public class OperatorService {
 	public String updateKD(String name) {
 		Operator anOp = getOperator(name);
 		anOp.setKd(anOp.getKills() / anOp.getDeaths());
+		repo.save(anOp);
 		return name + " K/D updated";
 	}
 
 	public Operator addKill(String name) {
 		Operator anOp = getOperator(name);
-		anOp.setKills(anOp.getKills() + 1);
+		anOp.setKills(anOp.getKills() + 1); 
+		repo.save(anOp);
 		return anOp;
 	}
 
 	public Operator addDeath(String name) {
 		Operator anOp = getOperator(name);
 		anOp.setDeaths(anOp.getDeaths() + 1);
+		repo.save(anOp);
 		return anOp;
 	}
 
 	public Operator addRound(String name) {
 		Operator anOp = getOperator(name);
 		anOp.setRounds(anOp.getRounds() + 1);
+		repo.save(anOp);
 		return anOp;
 	}
 

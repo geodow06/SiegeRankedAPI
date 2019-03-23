@@ -15,7 +15,7 @@ import com.qa.SiegeRankedAPI.Entities.Operator;
 @RunWith(SpringRunner.class)
 public class OperatorTest {
 
-	private static final Operator OP = new Operator(1L, "name", "ctu", 1, 2, 3, 4);
+	private static final Operator OP = new Operator("name", "ctu");
 	private static final int INT = 1;
 	private static final String STRING = new String();
 
@@ -26,7 +26,7 @@ public class OperatorTest {
 
 	@Test
 	public void setNameTest() {
-		Operator op = new Operator(null, null, null, 0, 0, 0, 0);
+		Operator op = new Operator();
 		op.setName(STRING);
 		assertEquals(STRING, op.getName());
 	}
@@ -38,7 +38,7 @@ public class OperatorTest {
 
 	@Test
 	public void setCTUTest() {
-		Operator op = new Operator(null, null, null, 0, 0, 0, 0);
+		Operator op = new Operator();
 		op.setCTU(STRING);
 		assertEquals(STRING, op.getCTU());
 	}
@@ -50,7 +50,7 @@ public class OperatorTest {
 
 	@Test
 	public void setKillsTest() {
-		Operator op = new Operator(null, null, null, 0, 0, 0, 0);
+		Operator op = new Operator();
 		op.setKills(INT);
 		assertEquals(INT, op.getKills());
 	}
@@ -62,7 +62,7 @@ public class OperatorTest {
 
 	@Test
 	public void setDeathsTest() {
-		Operator op = new Operator(null, null, null, 0, 0, 0, 0);
+		Operator op = new Operator();
 		op.setDeaths(INT);
 		assertEquals(INT, op.getDeaths());
 	}
@@ -74,7 +74,7 @@ public class OperatorTest {
 
 	@Test
 	public void setKDTest() {
-		Operator op = new Operator(null, null, null, 0, 0, 0, 0);
+		Operator op = new Operator();
 		op.setKd(INT);
 		assertEquals(INT, op.getKd());
 	}
@@ -86,7 +86,7 @@ public class OperatorTest {
 
 	@Test
 	public void setRoundsTest() {
-		Operator op = new Operator(null, null, null, 0, 0, 0, 0);
+		Operator op = new Operator();
 		op.setRounds(INT);
 		assertEquals(INT, op.getRounds());
 	}

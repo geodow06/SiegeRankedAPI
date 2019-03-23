@@ -27,7 +27,7 @@ public class OperatorController {
 	public OperatorService getOperatorService() {
 		return svc;
 	}
-
+ 
 	@PutMapping("/createOperator")
 	public boolean createOperator(@RequestBody Operator op) {
 		return svc.createOperator(op);

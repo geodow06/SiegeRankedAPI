@@ -21,7 +21,7 @@ import com.qa.SiegeRankedAPI.Service.OperatorService;
 @SpringBootTest
 public class OperatorControllerTest {
 
-	private static final Operator OP = new Operator(null, null, null, 0, 0, 0, 0);
+	private static final Operator OP = new Operator();
 	private static final List<Operator> OPLIST = new ArrayList<>();
 	private static final String STRING = new String();
 
