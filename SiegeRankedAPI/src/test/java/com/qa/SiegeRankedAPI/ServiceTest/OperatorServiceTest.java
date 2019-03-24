@@ -38,7 +38,7 @@ public class OperatorServiceTest {
 
 	@Test
 	public void getOperatorTest() {
-		Mockito.when(repo.findByName("name")).thenReturn(OP);
+		Mockito.when(repo.findByOperatorName("name")).thenReturn(OP);
 		assertEquals(OP, svc.getOperator("name"));
 	}
 
@@ -70,7 +70,7 @@ public class OperatorServiceTest {
 
 	@Test
 	public void deleteOperatorTest() {
-		Mockito.when(repo.existsByName(" ")).thenReturn(true);
+		Mockito.when(repo.existsByOperatorName(" ")).thenReturn(true);
 		assertEquals(true, svc.deleteOperator(" "));
 	}
 }

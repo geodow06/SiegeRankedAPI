@@ -13,12 +13,12 @@ import com.qa.SiegeRankedAPI.Entities.Match;
 @RunWith(SpringRunner.class)
 public class MatchTest {
 
-	private static final Match MATCH = new Match(null, null, null, 0, 0, 0, 0, 0);
+	private static final Match MATCH = new Match(null, false);
 	private static final int INT = 1;
 	private static final String STRING = new String();
 
 	@Test
 	public void getIdTest() {
-		assertEquals(STRING, MATCH.getId());
+		assertEquals(STRING, MATCH.getMatchId());
 	}
 }

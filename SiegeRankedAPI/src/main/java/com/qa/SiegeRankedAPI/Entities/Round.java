@@ -1,12 +1,20 @@
 package com.qa.SiegeRankedAPI.Entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "Round")
@@ -15,18 +23,28 @@ public class Round {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long roundId;
-	private String operator;
+	private String operatorName;
+	@ManyToOne(fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
+	@JoinColumn(name = "operatorName", insertable = false, updatable = false)
+	private Operator operator;
 	private int kills;
 	private int deaths;
 	private boolean win;
+	private Long matchId;
 
-	public Round(Long roundId, String operator, int kills, int deaths, boolean win) {
+	public Round() {
+
+	}
+ 
+	public Round(String operatorName, int kills, int deaths, boolean win, Long matchId) {
 		super();
-		this.roundId = roundId;
-		this.operator = operator;
+
+		this.operatorName = operatorName;
 		this.kills = kills;
 		this.deaths = deaths;
 		this.win = win;
+		this.matchId = matchId;
+
 	}
 
 	public Long getRoundId() {
@@ -37,11 +55,19 @@ public class Round {
 		this.roundId = roundId;
 	}
 
-	public String getOperator() {
+	public String getOperatorName() {
+		return operatorName;
+	}
+
+	public void setOperatorName(String operatorName) {
+		this.operatorName = operatorName;
+	}
+
+	public Operator getOperator() {
 		return operator;
 	}
 
-	public void setOperator(String operator) {
+	public void setOperator(Operator operator) {
 		this.operator = operator;
 	}
 
@@ -69,10 +95,18 @@ public class Round {
 		this.win = win;
 	}
 
+	public Long getMatchId() {
+		return matchId;
+	}
+
+	public void setMatchId(Long matchId) {
+		this.matchId = matchId;
+	}
+
 	@Override
 	public String toString() {
-		return "Round [roundId=" + roundId + ", operator=" + operator + ", kills=" + kills + ", deaths=" + deaths
-				+ ", win=" + win + "]";
+		return "Round [roundId=" + roundId + ", operatorName=" + operatorName + ", operator=" + operator + ", kills="
+				+ kills + ", deaths=" + deaths + ", win=" + win + ", matchId=" + matchId + "]";
 	}
 
 }

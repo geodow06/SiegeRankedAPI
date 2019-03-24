@@ -7,9 +7,9 @@ import com.qa.SiegeRankedAPI.Entities.Operator;
 
 @Repository
 public interface OperatorRepository extends JpaRepository<Operator, Long> {
-	public Operator findByName(String name);
+	public Operator findByOperatorName(String operatorName);
 
-	public boolean existsByName(String name);
+	public boolean existsByOperatorName(String operatorName);
 
-	public void deleteByName(String name);
+	public void deleteByOperatorName(String operatorName);
 }

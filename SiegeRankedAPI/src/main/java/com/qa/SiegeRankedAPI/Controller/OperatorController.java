@@ -43,25 +43,26 @@ public class OperatorController {
 		return svc.getAllOperators();
 	}
 
-	@GetMapping("/updateKD/{name}")
-	public String updateKD(@PathVariable String name) {
-		return svc.updateKD(name);
-	}
+//	@GetMapping("/updateKD/{name}")
+//	public String updateKD(@PathVariable String name) {
+//		return svc.updateKD(name);
+//	} 
+	
 
-	@PostMapping("/addKill/{name}")
-	public Operator addKill(@PathVariable String name) {
-		return svc.addKill(name);
-	}
+//	@PostMapping("/addKill/{name}")
+//	public Operator addKill(@PathVariable String name) {
+//		return svc.addKill(name);
+//	}
+//
+//	@PostMapping("/addDeath/{name}")
+//	public Operator addDeath(@PathVariable String name) {
+//		return svc.addDeath(name);
+//	}
 
-	@PostMapping("/addDeath/{name}")
-	public Operator addDeath(@PathVariable String name) {
-		return svc.addDeath(name);
-	}
-
-	@PostMapping("/addRound/{name}")
-	public Operator addRound(@PathVariable String name) {
-		return svc.addRound(name);
-	}
+//	@PostMapping("/addRound/{name}")
+//	public Operator addRound(@PathVariable String name) {
+//		return svc.addRound(name);
+//	}
 
 	@DeleteMapping("/deleteOperator/{name}")
 	public boolean deleteOperator(@PathVariable String name) {

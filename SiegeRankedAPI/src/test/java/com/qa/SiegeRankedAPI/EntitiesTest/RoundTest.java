@@ -13,16 +13,14 @@ import com.qa.SiegeRankedAPI.Entities.Round;
 @RunWith(SpringRunner.class)
 public class RoundTest {
 
-	private static final Round RND = new Round(null, null, 0, 0, false);
+	private static final Round RND = new Round(null, 0, 0, false, null);
 	private static final int INT = 1;
 	private static final String STRING = new String();
 
 	@Test
 	public void getIdTest() {
-		assertEquals(STRING, RND.getRoundId()); 
-		
-	} 
-	
-	
+		assertEquals(STRING, RND.getRoundId());
+
+	}
 
 }

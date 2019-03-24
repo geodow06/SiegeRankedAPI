@@ -1,9 +1,18 @@
 package com.qa.SiegeRankedAPI.Entities;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Match {
@@ -18,18 +27,26 @@ public class Match {
 	private int roundsWon;
 	private int roundsLost;
 	private String mapName;
-
-	public Match(Long matchId, String mapName, boolean win, int kills, int deaths, int kd, int roundsWon,
-			int roundsLost) {
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "matchId")
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@Column(name = "matchRounds")
+	private List<Round> matchRounds;
+    
+	public Match() { 
+		
+	}
+	
+	public Match(String mapName, boolean win) {
 		super();
-		this.matchId = matchId;
 		this.mapName = mapName;
 		this.win = win;
-		this.kills = kills;
-		this.deaths = deaths;
-		this.kd = kd;
-		this.roundsWon = roundsWon;
-		this.roundsLost = roundsLost;
+//		this.kills = kills;
+//		this.deaths = deaths;
+//		this.kd = kd;
+//		this.roundsWon = roundsWon;
+//		this.roundsLost = roundsLost;
+//		this.matchRounds = matchRounds;
 	}
 
 	public Long getMatchId() {
@@ -96,10 +113,19 @@ public class Match {
 		this.roundsLost = roundsLost;
 	}
 
+	public List<Round> getMatchRounds() {
+		return matchRounds;
+	}
+
+	public void setMatchRounds(List<Round> matchRounds) {
+		this.matchRounds = matchRounds;
+	}
+
 	@Override
 	public String toString() {
-		return "Match [matchId=" + matchId + ", mapName=" + mapName + ", win=" + win + ", kills=" + kills + ", deaths="
-				+ deaths + ", kd=" + kd + ", roundsWon=" + roundsWon + ", roundsLost=" + roundsLost + "]";
+		return "Match [matchId=" + matchId + ", win=" + win + ", kills=" + kills + ", deaths=" + deaths + ", kd=" + kd
+				+ ", roundsWon=" + roundsWon + ", roundsLost=" + roundsLost + ", mapName=" + mapName + ", matchRounds="
+				+ matchRounds + "]";
 	}
 
 }

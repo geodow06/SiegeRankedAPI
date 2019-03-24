@@ -44,8 +44,8 @@ public class MatchService {
 		return repo.findAll();
 	}
 
-	public List<Match> getAllMapMatches(String name) {
-		return repo.findAllByMapName(mapRepo.findByName(name).getMapName());
+	public List<Match> getAllMapMatches(String mapName) {
+		return repo.findAllByMapName(mapName);
 	}
 
 	// Update
